@@ -47,7 +47,9 @@ watch(() => props.show, (val) => {
     visible.value = val;
     date.value = props.modelValue
 })
-
+function show(){
+    visible.value = true
+}
 function hide() {
     visible.value = false
     emit('update:show', false)
@@ -57,6 +59,10 @@ function onConfirm() {
     emit('update:modelValue', date.value)
     hide()
 }
+defineExpose({
+    show,
+    hide,
+})
 </script>
 
 <style lang="scss" scoped>
